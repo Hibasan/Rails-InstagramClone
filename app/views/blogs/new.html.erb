@@ -1,0 +1,17 @@
+<%= render partial: 'users/header' %>
+
+<div class="main_container">
+      <%= render partial: 'users/left' %>
+  <%= form_with(model: @blog,local:true,url: choose_new_or_edit ) do |form| %>
+  <div class="blog_content">
+    <%= form.label :本文 %>
+    <%= form.text_field :content %>
+    <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.submit "投稿"%>
+    <%= link_to '戻る', user_path(current_user.id) %>
+    <% end %>
+  </div>
+
+</div>

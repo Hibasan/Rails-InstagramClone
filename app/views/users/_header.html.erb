@@ -1,0 +1,19 @@
+<div class="header">
+  <h1>duxi</h1>
+  <div class="header_notice">
+        <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+      </div>
+    <% if logged_in? %>
+    <ul class="header_ul">
+      <li class="header_li"><%= link_to "マイページ", user_path(current_user.id) %></li>
+      <li class="header_li"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+    </ul>
+    <% else %>
+    <ul class="header_ul">
+      <li class="header_li"><%= link_to "アカウント作成", new_user_path %></li>
+      <li class="header_li"><%= link_to "ログイン画面", new_session_path %></li>
+    </ul>
+    <% end %>
+  </div>

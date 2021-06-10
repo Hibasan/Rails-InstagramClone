@@ -1,0 +1,12 @@
+<%= render partial: 'users/header' %>
+<div class="main_container">
+    <%= render partial: 'users/left' %>
+  <%= form_with(model: @blog,local:true,url: choose_new_or_edit) do |form| %>
+  <div class="blog_content">
+    <%= form.label :本文 %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit "投稿"%>
+  <%= link_to '戻る', :back %>
+  <% end %>
+</div>

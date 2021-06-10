@@ -1,0 +1,15 @@
+<div>
+  <% @blogs.each do |blog| %>
+    <div class="content">
+      <h6><%= @user.name %></h6>
+      <% if main_user? %>
+      <ul class="blog_ul">
+        <li class="blog_li btn btn-primary"><%= link_to "編集", edit_blog_path(blog.id) %></li>
+        <li class="blog_li btn btn-primary"><%= link_to '削除', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></li>
+      </ul>
+      <% end %>
+    <p class="blog"><%= blog.content %></p>
+    <img src=<%=blog.image%>>
+    </div>
+  <% end %>
+</div>

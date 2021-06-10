@@ -1,0 +1,28 @@
+<%= render partial: 'header' %>
+<div class="main_container">
+  <%= render partial: 'left' %>
+  <div class="blog_container">
+    <% @blogs.each do |blog| %>
+      <div class="content">
+        <h6><%= @user.name %></h6>
+          <ul class="blog_ul">
+        <% if main_user? %>
+            <li class="blog_li btn btn-primary"><%= link_to "編集", edit_blog_path(blog.id) %></li>
+            <li class="blog_li btn btn-primary"><%= link_to '削除', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></li>
+        <% end %>
+        <% unless blog.user_id == current_user.id %>
+        <% @favorite = current_user.favorites.find_by(blog_id: blog.id) %>
+          <% if @favorite.present? %>
+            <li class="blog_li btn btn-primary"><%= link_to 'お気に入り解除', favorite_path(id: @favorite.id), method: :delete%></li>
+          <% else %>
+            <li class="blog_li btn btn-primary"><%= link_to 'お気に入り', favorites_path(blog_id: blog.id), method: :post%></li>
+          <% end %>
+          <% end %>
+          </ul>
+
+        <p class="blog"><%= blog.content %></p>
+        <img src=<%=blog.image%>>
+      </div>
+    <% end %>
+  </div>
+</div>

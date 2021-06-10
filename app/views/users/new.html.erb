@@ -1,0 +1,35 @@
+<div class="top_container container">
+  <div class="title col-sm-6 col-xs-12">
+    <h1>duxi</h1>
+    <p>duxi(デュクシィ)は「デュクシ！」とパンチを繰り出すことで繋がる
+      （パンチングネットワーキングシステム）です。
+      こちらから「デュクシ！」相手から「デュクシ！」といわば拳で
+      語り合う新しいタイプのコミュニティです。</p>
+    </div>
+    <div class="login col-sm-6 col-xs-12">
+      <%= form_with(model: @user, local: true) do |f| %>
+      <ul>
+        <li><%= f.label :名前 %></li>
+        <li><%= f.text_field :name %></li>
+        <li><%= f.label :メールアドレス %></li>
+        <li><%= f.email_field :email %></li>
+        <li><%= f.label :パスワード %></li>
+        <li><%= f.password_field :password %></li>
+        <li><%= f.label :パスワード（再入力） %></li>
+        <li><%= f.password_field :password_confirmation %></li>
+        <li><%= f.submit "アカウント登録" %></li>
+        <li><%= link_to "ログイン画面", new_session_path %></li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+  <div id="error_explanation">
+    <% if @user.errors.any? %>
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>

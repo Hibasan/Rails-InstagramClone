@@ -1,0 +1,16 @@
+.navbar{
+  margin-bottom:0;
+}
+
+.navbar-nav li{
+  clear: both;
+}
+
+.btn-primary{
+  background-color: #FFF;
+  margin:2px;
+}
+
+body{
+  background-color:#F5F5F5;
+ }

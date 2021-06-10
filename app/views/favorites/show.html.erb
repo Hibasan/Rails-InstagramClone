@@ -1,0 +1,18 @@
+<%= render partial: 'users/header' %>
+<div class="main_container">
+      <%= render partial: 'users/left' %>
+  <div class="blog_container">
+    <% @favorites.zip(@fovo_id) do |favo,favoid| %>
+          <div class="content">
+            <ul class="blog_ul">
+              <% if main_user? %>
+              <li class="blog_li btn btn-primary"><%= link_to 'お気に入り解除', favorite_path(id: favoid.id), method: :delete%></li>
+              <% end %>
+            </ul>
+      <h6><%= favo.user.name %></h6>
+      <p class="blog"><%= favo.content %></p>
+      <img src=<%=favo.image%>>
+    </div>
+    <% end %>
+  </div>
+</div>
