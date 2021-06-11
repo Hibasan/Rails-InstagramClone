@@ -1,0 +1,38 @@
+<%= render partial: 'users/header' %>
+<div class="main_container">
+    <%= render partial: 'users/left' %>
+  <%= form_with(model: @user,local:true,url: user_path(current_user.id)) do |form| %>
+  <div class="blog_content">
+    <ul>
+      <li><%= form.label :名前 %></li>
+      <li><%= form.text_field :name %></li>
+      <li><%= form.label :メールアドレス %></li>
+      <li><%= form.email_field :email %></li>
+      <li><%= form.label :自己紹介 %></li>
+      <li><%= form.text_field :comment %></li>
+      <li><%= form.label :パスワード %></li>
+      <li><%= form.password_field :password %></li>
+      <li><%= form.label :パスワード（再入力） %></li>
+      <li><%= form.password_field :password_confirmation %></li>
+    </ul>
+    <div class="edit_content">
+    <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+    </div>
+  </div>
+  <%= form.submit "投稿"%>
+  <%= link_to '戻る', :back %>
+  <% end %>
+  <div>
+    <% if @user.errors.any? %>
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+
+  </div>

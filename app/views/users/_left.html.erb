@@ -20,6 +20,7 @@
           <li>基本データ</li>
           <li>コミュニティ</li>
           <% if main_user? %>
+          <li><h3><%= link_to "プロフィール変更", edit_user_path(current_user.id) %></h3></li>
           <li><h2><%= link_to "新規投稿", new_blog_path(current_user.id) %></h2></li>
           <% end %>
         </ul>

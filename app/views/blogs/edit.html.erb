@@ -5,8 +5,23 @@
   <div class="blog_content">
     <%= form.label :本文 %>
     <%= form.text_field :content %>
+    <div class="edit_content">
+    <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %>
+    <%= form.file_field :image %>
+    </div>
   </div>
   <%= form.submit "投稿"%>
   <%= link_to '戻る', :back %>
   <% end %>
-</div>
+  <div>
+    <% if @blog.errors.any? %>
+    <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+    <ul>
+      <% @blog.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+
+  </div>

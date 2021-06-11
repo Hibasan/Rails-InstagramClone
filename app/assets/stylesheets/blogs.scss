@@ -25,20 +25,31 @@ ul {
   float: left;
 }
 
-
 .header_ul{
   padding:0 20px;
   float:right;
 }
 .header_li{
   padding:5px;
-
 }
 
-.main_container{
+.header_profile{
+  background-color: #009999;
   margin-top:80px;
-
+  height: 150px;
+  clear: both;
 }
+
+.profile_img{
+  float: left;
+  margin:5px 40px;
+}
+
+.profile_img img{
+  height: 140px;
+  width: 140px;
+}
+
 .left_container{
   float:left;
   width:200px;
@@ -54,6 +65,10 @@ ul {
   background-color: #636363;
   width:556px;
   float:left;
+}
+
+.edit_content img{
+  width:500px;
 }
 
 .content{
