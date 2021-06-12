@@ -42,6 +42,7 @@ class BlogsController < ApplicationController
 
   def update
       @blog = Blog.find(params[:id])
+      @user =User.find(current_user.id)
       if @blog.update(blog_params)
         redirect_to user_path(current_user.id), notice: "ブログを編集しました！"
       else

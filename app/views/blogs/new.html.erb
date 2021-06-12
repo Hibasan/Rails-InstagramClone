@@ -13,5 +13,15 @@
     <%= link_to '戻る', user_path(current_user.id) %>
     <% end %>
   </div>
+  <div>
+  <% if @blog.errors.any? %>
+  <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+  <ul>
+    <% @blog.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
 
 </div>
