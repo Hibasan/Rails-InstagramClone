@@ -3,6 +3,7 @@ class BlogsController < ApplicationController
   def new
     @blog = Blog.new
     @user =User.find(current_user.id)
+
   end
 
   def confirm
@@ -30,9 +31,10 @@ class BlogsController < ApplicationController
     end
   end
   def index
-    p "◆◆blogs_index◆◆"
     @blogs = Blog.all
+    @blog = Blog.new
     @user =User.find(params[:id])
+
   end
 
   def edit
@@ -41,13 +43,13 @@ class BlogsController < ApplicationController
   end
 
   def update
-      @blog = Blog.find(params[:id])
-      @user =User.find(current_user.id)
-      if @blog.update(blog_params)
-        redirect_to user_path(current_user.id), notice: "ブログを編集しました！"
-      else
-        render :edit
-      end
+    @blog = Blog.find(params[:id])
+    @user =User.find(current_user.id)
+    if @blog.update(blog_params)
+      redirect_to user_path(current_user.id), notice: "ブログを編集しました！"
+    else
+      render :edit
+    end
   end
 
   def destroy

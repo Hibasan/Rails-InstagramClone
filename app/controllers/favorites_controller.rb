@@ -11,12 +11,10 @@ class FavoritesController < ApplicationController
 
   def show
     @blog = Blog.new
-    p "◆◆current_user.favorites◆◆"
-    @fovo_id = current_user.favorites
     @user = User.find(params[:id])
     @favorites = @user.favorite_blogs
-    p "◆◆favorite◆◆"
-    p @favorites
+    @fovo_id = @user.favorites
+
   end
 
 

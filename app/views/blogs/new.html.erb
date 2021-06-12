@@ -1,7 +1,6 @@
 <%= render partial: 'users/header' %>
-
 <div class="main_container">
-      <%= render partial: 'users/left' %>
+  <%= render partial: 'users/left' %>
   <%= form_with(model: @blog,local:true,url: choose_new_or_edit ) do |form| %>
   <div class="blog_content">
     <%= form.label :本文 %>
@@ -14,14 +13,14 @@
     <% end %>
   </div>
   <div>
-  <% if @blog.errors.any? %>
-  <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
-  <ul>
-    <% @blog.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+    <% if @blog.errors.any? %>
+    <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+    <ul>
+      <% @blog.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
     <% end %>
-  </ul>
-  <% end %>
-</div>
+  </div>
 
 </div>

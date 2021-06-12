@@ -14,6 +14,7 @@
         <ul class ="nav navbar-nav">
           <li><%= link_to "ホーム", user_path(@user.id) %></li>
           <li><%= link_to "お気に入り", favorite_path(@user.id) %></li>
+          <li><%= link_to "全ユーザー投稿", blogs_path(id: @user.id) %></li>
           <% if main_user? %>
           <li><%= link_to "プロフィール変更", edit_user_path(current_user.id) %></li>
           <li><h2><%= link_to "新規投稿", new_blog_path(current_user.id) %></h2></li>
