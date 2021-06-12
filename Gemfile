@@ -9,6 +9,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
 
+gem 'faker'
+
 group :development do
   gem 'letter_opener_web'
 end
