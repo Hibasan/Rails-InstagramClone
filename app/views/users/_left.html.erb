@@ -14,13 +14,8 @@
         <ul class ="nav navbar-nav">
           <li><%= link_to "ホーム", user_path(@user.id) %></li>
           <li><%= link_to "お気に入り", favorite_path(@user.id) %></li>
-          <li>写真</li>
-          <li>動画</li>
-          <li>投稿</li>
-          <li>基本データ</li>
-          <li>コミュニティ</li>
           <% if main_user? %>
-          <li><h3><%= link_to "プロフィール変更", edit_user_path(current_user.id) %></h3></li>
+          <li><%= link_to "プロフィール変更", edit_user_path(current_user.id) %></li>
           <li><h2><%= link_to "新規投稿", new_blog_path(current_user.id) %></h2></li>
           <% end %>
         </ul>

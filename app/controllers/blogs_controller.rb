@@ -22,6 +22,7 @@ class BlogsController < ApplicationController
       render :new
     else
       if @blog.save(blog_params)
+        ContactMailer.contact_mail(@blog,@user).deliver
         redirect_to user_path(current_user.id),notice:"投稿しました！"
       else
         render :new
